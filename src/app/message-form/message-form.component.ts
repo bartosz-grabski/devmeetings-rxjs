@@ -10,7 +10,7 @@ import {Subject} from 'rxjs/Subject';
 })
 export class MessageFormComponent implements OnInit {
 
-  @Input() public submitButtonText = 'Done';
+  @Input() public submitButtonText = 'Send!';
 
   @Output() formSubmit = new EventEmitter();
   formSubmitSubject = new Subject();

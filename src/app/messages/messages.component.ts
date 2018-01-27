@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 import { map } from 'rxjs/operators';
@@ -17,14 +17,14 @@ export interface Message {
 })
 export class MessagesComponent implements OnInit {
 
-  private messages: Observable<Message[]>;
+  messages: Observable<Message[]>;
   private messagesDb: AngularFireList<any>;
 
   constructor(db: AngularFireDatabase) {
 
     this.messagesDb = db.list('messages');
     this.messages = this.messagesDb.valueChanges().pipe(
-      map((x: Message[]) => x.sort((a: Message, b: Message) => b.timestamp - a.timestamp))
+      map((x: Message[]) => x.sort((a: Message, b: Message) => a.timestamp - b.timestamp))
     );
 
   }
