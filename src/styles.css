@@ -4,22 +4,40 @@
 .sender {
   font-weight : bold;
 }
-.body {
-  margin-left: 20px;
+
+body, html {
+  overflow: hidden;
 }
 
+.body {
+  margin-left: 20px;
+
+}
+
+.mat-list {
+  flex-grow: 1;
+  overflow: auto;
+}
 
 .messages-container {
   display: flex;
   flex-flow: column;
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
+  overflow: auto;
 }
 .messages {
   flex-grow: 1;
+
 }
 
-.messages-form {
+.message-form {
   height: 100px;
   flex-grow: 0;
+  display: flex;
+  align-items: center;
+}
+
+.message-form button {
+  margin-left: 100px;
 }

@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule} from 'angularfire2/database';
-import { MatInputModule, MatButtonModule, MatListModule, MatDividerModule } from '@angular/material';
+import { MatInputModule, MatButtonModule, MatListModule, MatDividerModule, MatFormFieldModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from '../environments/environment';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -27,6 +27,7 @@ import { MessageFormComponent } from './message-form/message-form.component';
     MatButtonModule,
     MatListModule,
     MatDividerModule,
+    MatFormFieldModule,
     ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule
