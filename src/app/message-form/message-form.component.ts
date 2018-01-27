@@ -24,7 +24,7 @@ export class MessageFormComponent implements OnInit {
       message: ['', Validators.required]
     });
 
-    const regex = /https?:\/\/[a-z\.\/_0-9]+/g;
+    const regex = /https?:\/\/[a-zA-Z\.\/_0-9-%]+/g;
 
 
     this.formSubmitSubject
