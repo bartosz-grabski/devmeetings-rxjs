@@ -1,7 +1,7 @@
 <div class="messages-container">
   <mat-list #list class="messages">
     <mat-list-item type="text" *ngFor="let message of messages | async">
-      <span class="sender">{{message.sender}}</span><span class="body">{{message.body}}</span>
+      <span class="sender">{{message.sender}}</span><span class="body" [innerHTML]="message.body"></span>
       <mat-divider></mat-divider>
     </mat-list-item>
   </mat-list>
