@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { AngularFireDatabase } from 'angularfire2/database';
+import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 import { map } from 'rxjs/operators';
+import {fromPromise} from 'rxjs/observable/fromPromise';
 
-interface Message {
+export interface Message {
   timestamp: number;
   body: string;
   sender: string;
@@ -16,12 +17,20 @@ interface Message {
 })
 export class MessagesComponent implements OnInit {
 
-  messages: Observable<Message[]>;
+  private messages: Observable<Message[]>;
+  private messagesDb: AngularFireList<any>;
 
   constructor(db: AngularFireDatabase) {
-    this.messages = db.list('messages').valueChanges().pipe(
-      map((x: Message[]) => x.sort((a: Message, b: Message) => a.timestamp - b.timestamp))
+
+    this.messagesDb = db.list('messages');
+    this.messages = this.messagesDb.valueChanges().pipe(
+      map((x: Message[]) => x.sort((a: Message, b: Message) => b.timestamp - a.timestamp))
     );
+
+  }
+
+  addMessage(message) {
+    return fromPromise(this.messagesDb.push(message));
   }
 
   ngOnInit() {
