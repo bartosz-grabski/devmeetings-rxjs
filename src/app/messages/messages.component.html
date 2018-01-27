@@ -1,5 +1,8 @@
-<ul>
-  <li class="text" *ngFor="let message of messages | async">
-    {{message.sender}} : {{message.body}} : {{message.date}}
-  </li>
-</ul>
+<div class="messages-container">
+  <mat-list class="messages">
+    <mat-list-item type="text" *ngFor="let message of messages | async">
+      <span class="sender">{{message.sender}}</span><span class="body">{{message.body}}</span>
+    </mat-list-item>
+  </mat-list>
+  <app-message-form class="messages-form" (formSubmit)="addMessage($event)"></app-message-form>
+</div>
