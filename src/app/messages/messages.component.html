@@ -5,7 +5,7 @@
       <mat-divider></mat-divider>
     </mat-list-item>
   </mat-list>
-  <app-message-form class="messages-form" (formSubmit)="addMessage($event)"></app-message-form>
+  <app-message-form class="messages-form"  (showLinks)="onShowLinks()" (formSubmit)="addMessage($event)"></app-message-form>
 
 </div>
 

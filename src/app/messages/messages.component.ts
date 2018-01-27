@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 import {map} from 'rxjs/operators';
@@ -22,6 +22,8 @@ export class MessagesComponent implements OnInit {
   messages: Observable<Message[]>;
   private messagesDb: AngularFireList<any>;
 
+  @Output() showLinks = new EventEmitter();
+
   constructor(private db: MessageDbService) {
 
     this.messages = db.messages$.pipe(
@@ -29,6 +31,10 @@ export class MessagesComponent implements OnInit {
     );
 
 
+  }
+
+  onShowLinks() {
+    this.showLinks.emit();
   }
 
   addMessage(message) {

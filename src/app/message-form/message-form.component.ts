@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import {Input} from '@angular/core';
 import {Subject} from 'rxjs/Subject';
@@ -15,6 +15,8 @@ export class MessageFormComponent implements OnInit {
 
   @Output() formSubmit = new EventEmitter();
   formSubmitSubject = new Subject();
+
+  @Output() showLinks = new EventEmitter();
 
   public formGroup: FormGroup;
 
@@ -47,6 +49,12 @@ export class MessageFormComponent implements OnInit {
       })
       .subscribe(this.formSubmit);
 
+  }
+
+
+  onShowLinks() {
+    console.log('asd');
+    this.showLinks.emit();
   }
 
   ngOnInit() {

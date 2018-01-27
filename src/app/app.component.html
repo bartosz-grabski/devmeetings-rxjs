@@ -1,2 +1,9 @@
-<app-messages></app-messages>
- <app-links></app-links>
+<mat-sidenav-container>
+  <mat-sidenav-content>
+    <app-messages (showLinks)="sidenav.toggle()"></app-messages>
+  </mat-sidenav-content>
+  <mat-sidenav position="end" [(opened)]="opened" #sidenav>
+    <app-links></app-links>
+  </mat-sidenav>
+</mat-sidenav-container>
+
