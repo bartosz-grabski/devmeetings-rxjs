@@ -11,7 +11,7 @@ import {Message} from '../messages/messages.component';
 })
 export class MessageFormComponent implements OnInit {
 
-  @Input() public submitButtonText = 'Done';
+  @Input() public submitButtonText = 'Send!';
 
   @Output() formSubmit = new EventEmitter();
   formSubmitSubject = new Subject();
