@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import {Component, OnInit} from '@angular/core';
+import {Observable} from 'rxjs/Observable';
 import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
-import { map } from 'rxjs/operators';
+import {map} from 'rxjs/operators';
 import {fromPromise} from 'rxjs/observable/fromPromise';
 
 export interface Message {
   timestamp: number;
   body: string;
   sender: string;
+  link?: any;
 }
 
 @Component({
