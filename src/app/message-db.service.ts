@@ -7,7 +7,9 @@ import { from } from 'rxjs/observable/from';
 
 @Injectable()
 export class MessageDbService {
-  messages$ = this.db.list('messages').valueChanges();
+
+  dbList$ = this.db.list('messages');
+  messages$ = this.dbList$.valueChanges();
 
   message$ = concat(
     this.messages$.pipe(
@@ -18,7 +20,7 @@ export class MessageDbService {
       filter(action => !!action.payload),
       map(action => action.payload!.val()) // tslint:disable-line:no-non-null-assertion
     )
-  )
+  );
 
   // private messagesDb: AngularFireList<any>;
 

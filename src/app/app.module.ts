@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { MessagesComponent } from './messages/messages.component';
 import { MessageFormComponent } from './message-form/message-form.component';
 import { LinksComponent } from './links/links.component';
+import {MessageDbService} from './message-db.service';
 
 
 @NgModule({
@@ -35,7 +36,7 @@ import { LinksComponent } from './links/links.component';
     BrowserAnimationsModule,
     MatSidenavModule
   ],
-  providers: [],
+  providers: [ MessageDbService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
